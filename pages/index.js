@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+
 
 export default function Home() {
-  return (
+  return ( 
     <section className="text-gray-900 body-font h-screen">
       <Head>
         <meta charset='utf-8' />
@@ -27,11 +28,14 @@ export default function Home() {
           </h1>
           <p className="mb-32 leading-relaxed">Co.Buddy helps young professionals beat procastination and inactivity by peer accountability to achieve their goals faster.</p>
           <div className="flex w-full justify-center mb-5">
-            <button className="text-white w-full text-center bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
+            <Link href="/usersurvey">
+              <button className="text-white w-full text-center bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
+            </Link>
           </div>
           <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? Sign in</p>
         </div>
       </div>
+
     </section>
   )
 }
