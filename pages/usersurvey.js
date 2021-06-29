@@ -1,6 +1,14 @@
 import React, { useContext } from 'react'
 import Role from '../components/Role'
 import SkillLevel from '../components/SkillLevel'
+import Name from '../components/Name'
+import Greetings from '../components/Greetings'
+import CareerGoal from '../components/CareerGoal'
+import GoalImportance from '../components/GoalImportance'
+import Availability from '../components/Availability'
+import Location from '../components/Location'
+import Email from '../components/Email'
+import Password from '../components/Password'
 import { StepContext } from '../contexts/StepContext'
 
 export default function UserSurvey() {
@@ -11,9 +19,25 @@ export default function UserSurvey() {
   function showStep(step) {
     switch(step) {
       case 1: 
-        return <Role />
+        return <Name />
       case 2:
+        return <Greetings />
+      case 3:
+        return <Role />
+      case 4:
         return <SkillLevel />
+      case 5:
+        return <CareerGoal />
+      case 6:
+        return <GoalImportance />
+      case 7:
+        return <Availability />
+      case 8:
+        return <Location />
+      case 9:
+        return <Email />
+      case 10:
+        return <Password />
     }
   }
 

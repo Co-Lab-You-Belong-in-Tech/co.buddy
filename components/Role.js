@@ -20,7 +20,7 @@ export default function Role() {
             Other
           </button>
         </div>
-        <button onClick={()=>setStep(2)} className="bg-purple-500 text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+        <button onClick={()=>setStep(4)} className="bg-purple-500 text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
             Next
         </button>
       </div>
