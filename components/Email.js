@@ -7,7 +7,7 @@ export default function Email () {
     return(
         <div className="h-screen container mx-auto flex px-7 py-4 md:flex-row flex-col items-center justify-end">
             <div className="lg:flex-grow h-3/6 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-center md:text-left md:mb-0 items-center text-center">
-                <p className="mb-32 leading-relaxed">What's your email?</p>
+                <p className="mb-32 leading-relaxed">What&apos;s your email?</p>
                 <div className="mb-32 pt-0">
                     <input type="text" placeholder="Email" className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
                 </div>

@@ -11,7 +11,7 @@ import Email from '../components/Email'
 import Password from '../components/Password'
 import { StepContext } from '../contexts/StepContext'
 
-export default function UserSurvey() {
+export default function Enter() {
 
   const {currentStep, setStep} = useContext(StepContext);
   console.log(currentStep);
