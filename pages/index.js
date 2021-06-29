@@ -29,7 +29,7 @@ export default function Home() {
           <p className="mb-32 leading-relaxed">Co.Buddy helps young professionals beat procastination and inactivity by peer accountability to achieve their goals faster.</p>
           <div className="flex w-full justify-center mb-5">
             <Link href="/enter">
-              <button className="text-white w-full text-center bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
+              <button className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
             </Link>
           </div>
           <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? Sign in</p>
