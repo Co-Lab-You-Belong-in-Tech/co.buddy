@@ -12,7 +12,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
         <meta name='description' content='Description' />
         <meta name='keywords' content='Keywords' />
-        <title>Next.js PWA Example</title>
+        <title>Co.Buddy</title>
 
         <link rel='manifest' href='manifest.json' />
         <link href='/favicon-16x16.png' rel='icon' type='image/png' sizes='16x16' />
@@ -32,7 +32,7 @@ export default function Home() {
               <button className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
             </Link>
           </div>
-          <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? Sign in</p>
+          <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? <Link href="/signin"><a className="text-purple-500">Sign in</a></Link></p>
         </div>
       </div>
 
