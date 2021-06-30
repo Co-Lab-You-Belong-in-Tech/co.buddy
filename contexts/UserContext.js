@@ -1,0 +1,1 @@
+//rafael, create the user context here. use state hooks for all the user properties (roles ,etc)
