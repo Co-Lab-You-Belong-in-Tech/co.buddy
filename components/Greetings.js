@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { StepContext } from '../contexts/StepContext'
+import { UserContext } from '../contexts/UserContext'
 
 export default function Greetings () {
     const {setStep} = useContext(StepContext)
+    const {firstName} = useContext(UserContext)
 
     return (
       <div className="flex-1">
@@ -10,7 +12,7 @@ export default function Greetings () {
           <div>
           </div>
           <div>
-            <h1 className="text-center text-purple-400">Hi</h1>
+            <h1 className="text-center text-purple-400">Hi {firstName}.</h1>
             <p className="text-center">Answer a few questions to help us understand your goal and to find you an appropriate partner</p>
           </div>
           <button onClick={()=>setStep(3)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Next</button>

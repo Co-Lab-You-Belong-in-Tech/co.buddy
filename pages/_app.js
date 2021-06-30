@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { StepProvider } from '../contexts/StepContext'
 import { AuthContext } from '../contexts/AuthContext'
+import { UserContext, UserProvider } from '../contexts/UserContext'
 import {useUserData} from '../lib/hooks'
 
 function MyApp({ Component, pageProps }) {
@@ -10,9 +11,11 @@ function MyApp({ Component, pageProps }) {
   return(
     <>
       <AuthContext.Provider value={userData}>
-        <StepProvider>
-          <Component {...pageProps} />
-        </StepProvider>
+        <UserProvider>
+          <StepProvider>
+            <Component {...pageProps} />
+          </StepProvider>
+        </UserProvider>
       </AuthContext.Provider>
     </>
   )
