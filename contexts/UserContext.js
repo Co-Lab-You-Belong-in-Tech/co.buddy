@@ -10,7 +10,6 @@ const UserProvider = ({children}) => {
   const [goalImportance, setGoalImportance] = useState("");
   const [availability, setAvailability] = useState("");
   const [location, setLocation] = useState("");
-
   return (
       <UserContext.Provider 
         value={{firstName, setFirstName, 

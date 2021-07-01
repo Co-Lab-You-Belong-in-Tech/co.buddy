@@ -9,6 +9,9 @@ import Availability from '../components/Availability'
 import Location from '../components/Location'
 import Email from '../components/Email'
 import Password from '../components/Password'
+import DevHelp from '../components/DevHelp';
+import DesignerHelp from '../components/DesignerHelp';
+import PMHelp from '../components/PMHelp';
 import { StepContext } from '../contexts/StepContext'
 
 export default function Enter() {
@@ -38,6 +41,12 @@ export default function Enter() {
         return <Email />
       case 10:
         return <Password />
+      case 'A': 
+        return <DesignerHelp />
+      case 'B':
+        return <PMHelp />
+      case 'C':
+        return <DevHelp />
     }
   }
 
