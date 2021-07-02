@@ -21,8 +21,9 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+//TODO import all required data and perform user matching alg here
 export default async function matchUsers(req, res) {
-  const users = await firestore.collection('users').get();
-  console.log(users.docs.map(doc => doc.data()));
+  // const users = await firestore.collection('users').get();
+  // console.log(users.docs.map(doc => doc.data()));
 
 }
