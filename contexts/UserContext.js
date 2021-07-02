@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 const UserContext = createContext();
 
@@ -9,7 +9,7 @@ const UserProvider = ({children}) => {
   const [careerGoal, setCareerGoal] = useState("");
   const [goalImportance, setGoalImportance] = useState("");
   const [availability, setAvailability] = useState("");
-  const [location, setLocation] = useState("");
+
   return (
       <UserContext.Provider 
         value={{firstName, setFirstName, 
@@ -17,8 +17,7 @@ const UserProvider = ({children}) => {
                 skillLevel, setSkillLevel, 
                 careerGoal, setCareerGoal,
                 goalImportance, setGoalImportance,
-                availability, setAvailability,
-                location, setLocation}}>
+                availability, setAvailability}}>
       {children}
       </UserContext.Provider> 
   )

@@ -4,13 +4,12 @@ import { useContext } from 'react'
 import { AuthContext} from '../contexts/AuthContext'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
+import Link from 'next/link'
 
 export default function SignIn() {
   const {user} = useContext(AuthContext);
   const router = useRouter();
   
-  console.log(!user)
   useEffect(() => {
     if (user) {
       router.push("/admin");
@@ -25,6 +24,7 @@ export default function SignIn() {
             <p className="mb-32 leading-relaxed">Co.Buddy helps young professionals beat procastination and inactivity by peer accountability to achieve their goals faster.</p>
             <div className="flex w-full justify-center mb-5">
                 <SignInButton></SignInButton>
+                <Link href="/chat">click here</Link>
             </div>
           </div>
         </div>

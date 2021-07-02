@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react'
 import { AuthContext} from '../contexts/AuthContext'
 import SignIn, { SignInButton, SignOutButton } from './signin'
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 
 export default function Admin() {
@@ -22,6 +23,7 @@ export default function Admin() {
         <>
           <h1>Welcome User</h1>
           <SignOutButton></SignOutButton>
+          <Link href="/chat">click here</Link>
         </>
         :
         <SignInButton></SignInButton>

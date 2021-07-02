@@ -6,12 +6,11 @@ export default function Chat() {
   const {user} = useContext(AuthContext);
   const router = useRouter();
 
-  //@TODO: Figure out why this sends user to the /signin page even when logged in
-  // useEffect(() => {
-  //   if (!user) {
-  //     router.push("/signin")
-  //   }
-  // }, [user])
+  useEffect(() => {
+    if (!user) {
+      router.push("/signin")
+    }
+  }, [user])
 
   const [formValue, setFormValue] = useState('');
 

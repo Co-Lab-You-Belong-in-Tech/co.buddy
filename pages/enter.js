@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Role from '../components/Role'
 import SkillLevel from '../components/SkillLevel'
 import Name from '../components/Name'
@@ -13,11 +13,23 @@ import DevHelp from '../components/DevHelp';
 import DesignerHelp from '../components/DesignerHelp';
 import PMHelp from '../components/PMHelp';
 import { StepContext } from '../contexts/StepContext'
+import { AuthContext } from '../contexts/AuthContext'
+import { UserContext } from '../contexts/UserContext'
+import { useRouter } from 'next/router'
 
 export default function Enter() {
 
+  const {user} = useContext(AuthContext);
+  const router = useRouter();
+
   const {currentStep, setStep} = useContext(StepContext);
-  console.log(currentStep);
+
+
+  useEffect(() => {
+    if (user) {
+      router.push("/admin");
+    }
+  }, [user]);
 
   function showStep(step) {
     switch(step) {
@@ -36,18 +48,14 @@ export default function Enter() {
       case 7:
         return <Availability />
       case 8:
-        return <Location />
-      case 9:
         return <Email />
-      case 10:
-        return <Password />
-      case 'A': 
+      case "designer": 
         return <DesignerHelp />
-      case 'B':
+      case "pm":
         return <PMHelp />
-      case 'C':
+      case "dev":
         return <DevHelp />
-      case 'D':
+      case "otherrole":
         return <SkillLevel />
     }
   }
