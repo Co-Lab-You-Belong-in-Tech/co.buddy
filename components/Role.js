@@ -3,7 +3,7 @@ import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 export default function Role() {
   const {setStep} = useContext(StepContext)
-  const {setRole} = useContext(UserContext)
+  const {role, setRole} = useContext(UserContext)
   
 
   return (
@@ -24,9 +24,8 @@ export default function Role() {
             Other
           </button>
         </div>
-        <button onClick={()=>setStep(4)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Next
-        </button>
+        <button disabled={!role} onClick={()=>setStep(4)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
+
       </div>
     </div>
   )

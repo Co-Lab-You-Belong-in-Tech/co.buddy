@@ -3,7 +3,7 @@ import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 
 export default function CareerGoal () {
-    const {setCareerGoal} = useContext(UserContext)
+    const {careerGoal, setCareerGoal} = useContext(UserContext)
     const {setStep} = useContext(StepContext) 
 
     return (
@@ -27,9 +27,7 @@ export default function CareerGoal () {
             Other
           </button>
         </div>
-        <button onClick={()=>setStep(6)} className="bg-purple-500 text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Next
-        </button>
+        <button disabled={!careerGoal} onClick={()=>setStep(6)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
         </div>
         </div>
       )

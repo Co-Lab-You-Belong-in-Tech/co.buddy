@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext'
 
 export default function Availability () {
     const {setStep} = useContext(StepContext)
-    const {setAvailability} = useContext(UserContext)
+    const {availability, setAvailability} = useContext(UserContext)
   
     return (
         <div className="flex-1">
@@ -24,9 +24,8 @@ export default function Availability () {
                 Once a month
               </button>
             </div>
-            <button onClick={()=>setStep(8)} className="bg-purple-500 text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                Next
-            </button>
+            <button disabled={!availability} onClick={()=>setStep(8)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
+
           </div>
         </div>
     )

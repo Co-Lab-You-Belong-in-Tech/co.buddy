@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext'
 
 export default function SkillLevel() {
   const {setStep} = useContext(StepContext)
-  const {setSkillLevel, role} = useContext(UserContext)
+  const {skillLevel, setSkillLevel, role} = useContext(UserContext)
 
   return (
     <div className="flex-1">
@@ -27,9 +27,7 @@ export default function SkillLevel() {
             Senior
           </button>
         </div>
-        <button onClick={()=>setStep(role)} className="bg-purple-500 text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Next
-        </button>
+        <button disabled={!skillLevel} onClick={()=>setStep(role)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
       </div>
     </div>
   )
