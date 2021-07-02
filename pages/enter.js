@@ -47,7 +47,7 @@ export default function Enter() {
         return <PMHelp />
       case 'C':
         return <DevHelp />
-      case 'C':
+      case 'D':
         return <SkillLevel />
     }
   }
