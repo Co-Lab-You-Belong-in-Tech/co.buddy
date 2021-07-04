@@ -27,7 +27,7 @@ export default function CareerGoal () {
             Other
           </button>
         </div>
-        <button disabled={!careerGoal} onClick={()=>setStep(6)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
+        <button disabled={!careerGoal} onClick={()=>setStep(7)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
         </div>
         </div>
       )

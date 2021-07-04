@@ -9,9 +9,7 @@ import Availability from '../components/Availability'
 import Location from '../components/Location'
 import Email from '../components/Email'
 import Password from '../components/Password'
-import DevHelp from '../components/DevHelp';
-import DesignerHelp from '../components/DesignerHelp';
-import PMHelp from '../components/PMHelp';
+import Help from '../components/Help'
 import { StepContext } from '../contexts/StepContext'
 import { AuthContext } from '../contexts/AuthContext'
 import { UserContext } from '../contexts/UserContext'
@@ -42,21 +40,15 @@ export default function Enter() {
       case 4:
         return <SkillLevel />
       case 5:
-        return <CareerGoal />
+          return <Help />
       case 6:
-        return <GoalImportance />
+        return <CareerGoal />
       case 7:
-        return <Availability />
+        return <GoalImportance />
       case 8:
+        return <Availability />
+      case 9:
         return <Email />
-      case "designer": 
-        return <DesignerHelp />
-      case "pm":
-        return <PMHelp />
-      case "dev":
-        return <DevHelp />
-      case "otherrole":
-        return <SkillLevel />
     }
   }
 
