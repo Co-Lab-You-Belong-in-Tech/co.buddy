@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyBJCWoY3VWwWOBvs2nCj7Pl8xgjrtZtI-E",
   authDomain: "cobuddy-d5ce6.firebaseapp.com",
@@ -21,9 +22,18 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-//TODO import all required data and perform user matching alg here
-export default async function matchUsers(req, res) {
-  // const users = await firestore.collection('users').get();
-  // console.log(users.docs.map(doc => doc.data()));
+const getUnmatchedUsers = () => {
+  //TODO: get unmatched users only
+  const unmatchedUsers = firestore.collection("users").where("partner", "==", null).get();
+}
 
+//TODO: import all required data and perform user matching alg here
+export default async function matchUsers(req, res) {
+  if (!req.body.uid) return res.status(400).send('User not found.')
+
+  const userId = req.body.uid;
+  const unmatchedUsers = getUnmatchedUsers();
+  console.log(unmatchedUsers);
+  res.status(200).send('OK');
+  
 }

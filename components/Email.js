@@ -4,22 +4,33 @@ import { StepContext } from '../contexts/StepContext'
 import { AuthContext } from '../contexts/AuthContext';
 import { auth, googleAuthProvider, firestore } from '../lib/firebase';
 import { UserContext } from '../contexts/UserContext';
+import axios from 'axios';
 
 export default function Email () {
     const {setStep} = useContext(StepContext)
     const {user} = useContext(AuthContext)
     const {firstName, role, skillLevel, careerGoal, goalImportance, availability} = useContext(UserContext)
 
+
     const updateUserData = async (firstName, role, skillLevel, careerGoal, goalImportance, availability) => {
-      const userDoc = firestore.doc(`users/${user.uid}`);
-    
+      const userId = user.uid;
+      const userDoc = firestore.doc(`users/${userId}`);
+      
       const batch = firestore.batch();
       batch.set(userDoc, {firstname: firstName, role: role, skillLevel: skillLevel, careergoal: careerGoal, goalimportance: goalImportance, availability: availability, partner: null});
-    
+      
       await batch.commit();
+
+      //this is where we send the post request to the server to match the current user
+      await axios
+              .post('/api/matchUsers', user)
+              .then(response => {
+                console.log(response);
+              })
     }
     
     useEffect(() => {
+      //TODO: if user logged in and hasn't filled in entry form
       if(user) {
         updateUserData(firstName, role, skillLevel, careerGoal, goalImportance, availability);
         router.push("/admin");
