@@ -22,18 +22,81 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-const getUnmatchedUsers = () => {
-  //TODO: get unmatched users only
-  const unmatchedUsers = firestore.collection("users").where("partner", "==", null).get();
+const getUnmatchedUsers = async (curUserId)  => {
+  const unmatchedUsers = new Map();
+  const getUsers = await firestore.collection("users")
+                            .where("partner", "==", null)
+                            .get()
+                            .then((querySnapshot) => {
+                              querySnapshot.forEach((doc) => {
+                                unmatchedUsers.set(doc.id, doc.data());
+                              });
+                            })
+  unmatchedUsers.delete(curUserId)
+  return unmatchedUsers;
+}
+
+const getCurUser = async (uid) => {
+  var curUser; 
+  const getUser = await firestore.collection("users")
+                          .doc(uid)
+                          .get()
+                          .then(doc => {
+                            curUser = doc.data()
+                          });
+
+  return curUser;
+}
+
+const findBestUser = (curUser, unmatchedUsers) => {
+  var bestUser;
+  
+  unmatchedUsers.forEach((user, id) => {
+    if(user.role === curUser.role) {
+      bestUser = {id, user};
+    }
+    if (user.role === curUser.role && user.availability === curUser.availability) {
+      bestUser = {id, user};
+    }
+  });
+
+  return bestUser;
+} 
+
+const createThread = async (curUserId, bestUserId) => {
+  var threadId;
+  if (curUserId < bestUserId) {
+    threadId = curUserId + bestUserId;
+  }
+  else {
+    threadId = bestUserId + curUserId;
+  }
+
+  await firestore.collection("chats")
+          .doc(threadId)
+          .set({
+            exists: true
+  })
 }
 
 //TODO: import all required data and perform user matching alg here
 export default async function matchUsers(req, res) {
   if (!req.body.uid) return res.status(400).send('User not found.')
-
   const userId = req.body.uid;
-  const unmatchedUsers = getUnmatchedUsers();
-  console.log(unmatchedUsers);
+  const unmatchedUsers = await getUnmatchedUsers(userId);
+  const curUser = await getCurUser(userId);
+
+  const bestUser = findBestUser(curUser, unmatchedUsers);
+  //TODO: set both to be each other's partner. 
+  //TODO: in chat document, create a thread between two users.
+  await createThread(userId, bestUser.id)
+
+  if (!bestUser) {
+    console.log('Sorry, did not find a match for you.');
+  }
+  else {
+    console.log(bestUser, "- matched with", userId);
+  }
+
   res.status(200).send('OK');
-  
 }
