@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import logo from '../public/resources/logo.png'
 
 export default function Home() {
   return ( 
@@ -21,18 +21,19 @@ export default function Home() {
         <meta name='theme-color' content='#317EFB' />
       </Head>
 
-      <div className="h-screen container mx-auto flex px-7 py-4 md:flex-row flex-col items-center justify-end">
+      <div className="h-screen container mx-auto flex flex-col px-7 py-4 items-center justify-end">
+        <Image width="50" height="50" src={logo} alt="Co.Buddy logo" className="object-contain"></Image>
         <div className="lg:flex-grow h-3/6 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-center md:text-left md:mb-0 items-center text-center">
           <h1 className="text-xl font-bold mb-10">
             Welcome to Co.Buddy
           </h1>
-          <p className="mb-32 leading-relaxed">Co.Buddy helps young professionals beat procastination and inactivity by peer accountability to achieve their goals faster.</p>
+          <p className="mb-32 leading-relaxed max-w-xs text-gray-500">Co.Buddy helps young professionals beat procastination and inactivity through peer-accountablity</p>
           <div className="flex w-full justify-center mb-5">
             <Link href="/enter">
-              <button className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign up</button>
+              <button className="text-white w-full text-center bg-copurple border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get Started</button>
             </Link>
           </div>
-          <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? <Link href="/signin"><a className="text-purple-500">Sign in</a></Link></p>
+          <p className="mb-8 leading-relaxed text-sm text-gray-400">Already have an account? <Link href="/signin"><a className="text-copurple">Sign in</a></Link></p>
         </div>
       </div>
 

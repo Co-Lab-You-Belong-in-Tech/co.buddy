@@ -79,6 +79,17 @@ const createThread = async (curUserId, bestUserId) => {
   })
 }
 
+const setPartners = async (curUserId, bestUserId) => {
+  await firestore.collection("users").doc(curUserId).set({
+    partner: bestUserId
+  })
+
+  await firestore.collection("users").doc(bestUserId).set({
+    partner: curUserId
+  })
+
+} 
+
 //TODO: import all required data and perform user matching alg here
 export default async function matchUsers(req, res) {
   if (!req.body.uid) return res.status(400).send('User not found.')
@@ -87,16 +98,7 @@ export default async function matchUsers(req, res) {
   const curUser = await getCurUser(userId);
 
   const bestUser = findBestUser(curUser, unmatchedUsers);
-  //TODO: set both to be each other's partner. 
-  //TODO: in chat document, create a thread between two users.
+  await setPartners(userId, bestUser.id)
   await createThread(userId, bestUser.id)
-
-  if (!bestUser) {
-    console.log('Sorry, did not find a match for you.');
-  }
-  else {
-    console.log(bestUser, "- matched with", userId);
-  }
-
   res.status(200).send('OK');
 }
