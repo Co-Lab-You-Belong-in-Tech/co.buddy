@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 export default function Role() {
-  const {setStep} = useContext(StepContext)
+  const {setStep, setProgress} = useContext(StepContext)
   const {role, setRole} = useContext(UserContext)
   
+  setProgress("33%");
 
   return (
     <div className="flex-1">

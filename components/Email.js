@@ -7,10 +7,11 @@ import { UserContext } from '../contexts/UserContext';
 import axios from 'axios';
 
 export default function Email () {
-    const {setStep} = useContext(StepContext)
+    const {setProgress} = useContext(StepContext)
     const {user} = useContext(AuthContext)
     const {firstName, role, skillLevel, careerGoal, goalImportance, availability} = useContext(UserContext)
 
+    setProgress("88%");
 
     const updateUserData = async (firstName, role, skillLevel, careerGoal, goalImportance, availability) => {
       const userId = user.uid;
@@ -26,7 +27,7 @@ export default function Email () {
               .post('/api/matchUsers', user)
               .then(response => {
                 console.log(response);
-              })
+      })
     }
     
     useEffect(() => {

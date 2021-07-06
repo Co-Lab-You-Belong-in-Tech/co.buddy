@@ -24,13 +24,13 @@ export default function Home() {
       </Head>
 
       <div className="h-screen relative container mx-auto flex flex-col px-7 py-4 items-center lg:justify-center justify-end">
-        <div className="absolute bottom-12 right-24 z-0">
+        <div className="lg:block absolute bottom-12 right-24 z-0 hidden">
           <Image src={vlada} width="355" height="441"></Image>
         </div>
-        <div className="absolute top-12 left-24 z-0">
+        <div className="lg:block absolute top-12 left-24 z-0 hidden">
           <Image src={samkov} width="355" height="441"></Image>
         </div>
-        <div className="absolute flex flex-col items-center lg:p-12 lg:shadow-xl rounded border-0 z-40">
+        <div className="relative flex flex-col items-center lg:p-12 lg:shadow-xl rounded border-0 z-40 bg-white">
           <Image width="50" height="50" src={logo} alt="Co.Buddy logo" className="object-contain"></Image>
           <div className="lg:flex-grow h-3/6 flex flex-col md:items-center md:text-left md:mb-0 items-center text-center">
             <h1 className="text-xl font-bold mb-10">

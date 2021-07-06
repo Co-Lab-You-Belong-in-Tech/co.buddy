@@ -5,8 +5,10 @@ import { UserContext } from '../contexts/UserContext'
 
 export default function GoalImportance () {
 
-    const {setStep} = useContext(StepContext)
+    const {setStep, setProgress} = useContext(StepContext)
     const {goalImportance, setGoalImportance} = useContext(UserContext)
+
+    setProgress("77%");
 
     const handleGoalChange = (event) => {
       setGoalImportance(event.target.value);  

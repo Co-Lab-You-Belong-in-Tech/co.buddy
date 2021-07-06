@@ -4,8 +4,9 @@ import { UserContext } from '../contexts/UserContext'
 
 export default function CareerGoal () {
     const {careerGoal, setCareerGoal} = useContext(UserContext)
-    const {setStep} = useContext(StepContext) 
+    const {setStep, setProgress} = useContext(StepContext) 
 
+    setProgress("66%");
     return (
         <div className="flex-1">
         <div className="flex flex-col justify-between p-10 h-full">

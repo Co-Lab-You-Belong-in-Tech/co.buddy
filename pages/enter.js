@@ -20,8 +20,7 @@ export default function Enter() {
   const {user} = useContext(AuthContext);
   const router = useRouter();
 
-  const {currentStep, setStep} = useContext(StepContext);
-
+  const {currentStep, setStep, progress, setProgress} = useContext(StepContext);
 
   useEffect(() => {
     if (user) {
@@ -40,9 +39,9 @@ export default function Enter() {
       case 4:
         return <SkillLevel />
       case 5:
-          return <Help />
+        return <Help /> 
       case 6:
-        return <CareerGoal />
+        return <CareerGoal /> 
       case 7:
         return <GoalImportance />
       case 8:
@@ -55,7 +54,7 @@ export default function Enter() {
   return (
     <div className="h-screen flex flex-col">
       <div className="relative pt-1">
-        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 m-5">
+        <div style={{width: progress}} className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-copurple m-5">
         </div>
       </div>
       {showStep(currentStep)}

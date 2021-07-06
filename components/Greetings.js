@@ -3,8 +3,10 @@ import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 
 export default function Greetings () {
-    const {setStep} = useContext(StepContext)
+    const {setStep, setProgress} = useContext(StepContext)
     const {firstName} = useContext(UserContext)
+
+    setProgress("22%");
 
     return (
       <div className="flex-1">

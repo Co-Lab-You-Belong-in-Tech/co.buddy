@@ -3,9 +3,10 @@ import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 
 export default function Name () {
-    const {setStep} = useContext(StepContext);
+    const {setStep, setProgress} = useContext(StepContext);
     const {firstName, setFirstName} = useContext(UserContext);
 
+    setProgress("11%");
     const handleNameChange = (event) => {
       setFirstName(event.target.value);  
     }
@@ -14,7 +15,7 @@ export default function Name () {
       <div className="flex-1">
         <div className="flex flex-col justify-between p-10 h-full">
           <h1 className="font-bold text-center">What&apos;s your first name?</h1>
-          <form>
+          <form className="flex flex-col justify-between h-2/4">
             <div className="mb-32 pt-0">
               <input type="text" value={firstName} onChange={handleNameChange} placeholder="First name" className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
             </div>

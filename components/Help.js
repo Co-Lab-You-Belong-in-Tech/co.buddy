@@ -4,6 +4,8 @@ import CareerGoal from './CareerGoal'
 import { UserContext } from '../contexts/UserContext'
 
 export default function Help () {
+    const {setProgress} = useContext(StepContext)
+    setProgress("55%");
     const {role}  = useContext(UserContext)
     function showRole(role) {
         switch(role) {
@@ -20,10 +22,6 @@ export default function Help () {
     
       return (
         <div className="h-screen flex flex-col">
-          <div className="relative pt-1">
-            <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 m-5">
-            </div>
-          </div>
           {showRole(role)}
         </div>
       )

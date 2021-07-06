@@ -3,9 +3,10 @@ import { StepContext } from '../contexts/StepContext'
 import { UserContext } from '../contexts/UserContext'
 
 export default function SkillLevel() {
-  const {setStep} = useContext(StepContext)
+  const {setStep, setProgress} = useContext(StepContext)
   const {skillLevel, setSkillLevel} = useContext(UserContext)
 
+  setProgress("44%");
   return (
     <div className="flex-1">
       <div className="flex flex-col justify-between p-10 h-full">
