@@ -12,7 +12,7 @@ export default function Chat() {
   const router = useRouter();
 
   const [partner, setPartner] = useState();
-
+  
   useEffect(() => {
     if (!user) {
       router.push("/signin")
@@ -31,6 +31,7 @@ export default function Chat() {
     }
 
     getPartnerId();
+
   }, [user])
   
   const curUserId = auth.currentUser.uid;

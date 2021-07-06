@@ -80,11 +80,11 @@ const createThread = async (curUserId, bestUserId) => {
 }
 
 const setPartners = async (curUserId, bestUserId) => {
-  await firestore.collection("users").doc(curUserId).set({
+  await firestore.collection("users").doc(curUserId).update({
     partner: bestUserId
   })
 
-  await firestore.collection("users").doc(bestUserId).set({
+  await firestore.collection("users").doc(bestUserId).update({
     partner: curUserId
   })
 

@@ -18,6 +18,9 @@ module.exports = {
           '900': '#0300A0'
         },
         cogray: "c4c4c4",
+      },
+      fontFamily: {
+        'sans': ['Manrope', 'Helvetica', 'Arial', 'sans-serif']
       }
     },
   },

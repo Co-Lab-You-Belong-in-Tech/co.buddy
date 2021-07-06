@@ -12,14 +12,14 @@ export default function Name () {
     }
 
     return (
-      <div className="flex-1">
-        <div className="flex flex-col justify-between p-10 h-full">
-          <h1 className="font-bold text-center">What&apos;s your first name?</h1>
+      <div className="flex-1 flex flex-col lg:justify-center lg:items-center">
+        <div className="flex flex-col justify-between p-10 lg:w-96 h-full lg:h-60 lg:mb-40">
+          <h1 className="font-bold text-center text-gray-800 lg:text-xl">What&apos;s your first name?</h1>
           <form className="flex flex-col justify-between h-2/4">
-            <div className="mb-32 pt-0">
-              <input type="text" value={firstName} onChange={handleNameChange} placeholder="First name" className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
+            <div className="lg:mb-16 mb-32 pt-0">
+              <input type="text" value={firstName} onChange={handleNameChange} placeholder="First name" className="lg:text-center px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
             </div>
-            <button disabled={!firstName} onClick={()=>setStep(2)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Next</button>
+            <button disabled={!firstName} onClick={()=>setStep(2)} className="disabled:opacity-50 bg-purple-500 w-full text-white active:bg-violet-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-opacity duration-150" type="button">Next</button>
           </form>
         </div>
       </div>
