@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState, useRef} from 'react'
-import { auth } from '../lib/firebase'
+import { auth, fieldvalue } from '../lib/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth' 
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { useRouter } from 'next/router'
@@ -16,9 +16,10 @@ import foundmatch from '../public/resources/foundmatch.png'
 import goal from '../public/resources/goal.svg'
 import focus from '../public/resources/focus.svg'
 import homenotactive from '../public/resources/HomeNotActive.svg'
+import logo from '../public/resources/logo.png'
 
 export default function Dashboard() {
-  const {firstName, setFirstName, role, setRole, skillLevel, setSkillLevel, careerGoal, setCareerGoal, goalImportance, setGoalImportance, availability, setAvailability, partner, setPartner} = useContext(UserContext)
+  const {firstName, setFirstName, role, setRole, skillLevel, setSkillLevel, careerGoal, setCareerGoal, goalImportance, setGoalImportance, availability, setAvailability, partner, setPartner, help, setHelp} = useContext(UserContext)
   const [user] = useAuthState(auth)
   const router = useRouter();
   const [partnerInfo, setPartnerInfo] = useState("");
@@ -42,6 +43,7 @@ export default function Dashboard() {
                             setGoalImportance(doc.data().goalimportance)
                             setAvailability(doc.data().availability)
                             setPartner(doc.data().partner)
+                            setHelp(doc.data().help)
         })
       }
 
@@ -84,31 +86,35 @@ export default function Dashboard() {
       <div>
         {user && !partner && 
           <div className="text-gray-900 body-font h-screen bg-gray-100">
-          <div className="flex flex-col h-screen container mx-auto px-4 py-8 md:flex-row items-center justify-start">
-            <div className="relative w-full">
-              <div className="w-full">
-                <h1 className="font-bold mb-7">Hi {firstName}</h1>
+            <div className="flex flex-col h-screen container mx-auto px-4 py-8 md:flex-row items-center justify-start">
+              <div className="hidden lg:flex justify-center items-center fixed top-0 left-0 right-0 w-full h-20 border-b bg-white">
+                <Image src={logo} width="40" height="40"></Image>
+                <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
               </div>
-              <div className="flex flex-col justify-center items-center w-full px-12 mb-4 h-36 bg-coyellow rounded shadow-md">
-                <Image src={foundmatch} width="72" height="72"></Image>
-                <p className="font-bold text-sm">You are almost there!</p>
-                <p className="text-sm text-center">We&apos;ll get you matched in no time. Keep your fingers crossed.</p>
-              </div>
-              <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                <Image src={goal} width="20" height="20"></Image>
-                <p className="text-coblue">Your Next Career Goal</p>
-                <p className="text-lg font-bold">{careerGoal}</p>
-              </div>
-              <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                <Image src={focus} width="20" height="20"></Image>
-                <p className="text-coorange">Your Primary Focus</p>
-                <p className="text-lg font-bold">Placeholder Text</p>
-              </div>
-                <SignOutButton></SignOutButton>
+              <div className="relative w-full lg:w-large mx-auto">
+                <div className="w-full">
+                  <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
+                </div>
+                <div className="flex flex-col justify-center items-center w-full px-12 mb-4 h-36 bg-coyellow rounded shadow-md">
+                  <Image src={foundmatch} width="72" height="72"></Image>
+                  <p className="font-bold text-sm">You are almost there!</p>
+                  <p className="text-sm text-center">We&apos;ll get you matched in no time. Keep your fingers crossed.</p>
+                </div>
+                <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
+                  <Image src={goal} width="20" height="20"></Image>
+                  <p className="text-coblue">Your Next Career Goal</p>
+                  <p className="text-lg font-bold">{careerGoal}</p>
+                </div>
+                <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
+                  <Image src={focus} width="20" height="20"></Image>
+                  <p className="text-coorange">Your Primary Focus</p>
+                  <p className="text-lg font-bold">{help}</p>
+                </div>
+                  <SignOutButton></SignOutButton>
             </div>  
           </div>
-          <div className="fixed bottom-0 inset-x-0 bg-white h-16 p-4">
-            <div className="flex justify-between items-center h-full">
+          <div className="fixed bottom-0 inset-x-0 bg-white lg:h-20 h-16 p-4 border-t border-gray-300">
+            <div className="flex justify-between items-center h-full mx-auto lg:w-large">
               <div className="flex flex-col justify-center items-center px-14" onClick={() => setOpenChat(false)}>
                 <Image src={home} width="20" height="20"></Image>
                 <p className="text-xs text-copurple">Home</p>
@@ -131,10 +137,14 @@ export default function Dashboard() {
       <div>
         {user && partner && !openChat &&
           <div className="text-gray-900 body-font h-screen bg-gray-100">
+            <div className="hidden lg:flex justify-center items-center fixed top-0 left-0 right-0 w-full h-20 border-b bg-white">
+              <Image src={logo} width="40" height="40"></Image>
+              <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
+            </div>
             <div className="flex flex-col h-screen container mx-auto px-4 py-8 md:flex-row items-center justify-start">
-              <div className="relative w-full">
+              <div className="relative w-full lg:w-large mx-auto">
                 <div className="w-full">
-                  <h1 className="font-bold mb-7">Hi {firstName}</h1>
+                  <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-36 bg-copurple-200 rounded shadow-md">
                   <Image src={foundmatch} width="72" height="72"></Image>
@@ -148,13 +158,13 @@ export default function Dashboard() {
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
                   <Image src={focus} width="20" height="20"></Image>
                   <p className="text-coorange">Your Primary Focus</p>
-                  <p className="text-lg font-bold">Placeholder Text</p>
+                  <p className="text-lg font-bold">{help}</p>
                 </div>
                   <SignOutButton></SignOutButton>
               </div>  
             </div>
-            <div className="fixed bottom-0 inset-x-0 bg-white h-16 p-4">
-              <div className="flex justify-between items-center h-full">
+            <div className="fixed bottom-0 inset-x-0 bg-white lg:h-20 h-16 p-4 border-t border-gray-300">
+              <div className="flex justify-between items-center h-full mx-auto lg:w-large">
                 <div className="flex flex-col justify-center items-center px-14" onClick={() => setOpenChat(false)}>
                   <Image src={home} width="20" height="20"></Image>
                   <p className="text-xs text-copurple">Home</p>
@@ -200,7 +210,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
 
     await messagesRef.add({
       text: formValue,
-      createdAt: fieldvalue.serverTimestamp(),
+      createdAt: fieldvalue.serverTimestamp(), //TODO, FIX fieldvalue import 
       uid
     })
 
@@ -215,7 +225,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
           <h3 className="font-bold text-white text-center">You &amp; {partnerInfo.firstname}</h3>
         </header>
         <section className="min-h-screen">
-        <main className="flex flex-col overflow-y-scroll my-24 p-3">
+        <main className="flex flex-col overflow-y-scroll mt-24 mb-32 p-3">
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
           <div ref={dummy}></div>
         </main>

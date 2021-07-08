@@ -45,5 +45,5 @@ export function SignInButton() {
 }
 
 export function SignOutButton() {
-  return <button onClick={() => auth.signOut()} className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign Out</button>;
+  return <button onClick={() => auth.signOut()} className="text-gray-800 w-full text-center bg-white border-0 py-2 px-6 focus:outline-none shadow-md rounded text-lg">Sign Out</button>;
 }

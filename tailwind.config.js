@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      width: {
+        'large': '490px'
+      },
       colors: {
         'copurple': {
           DEFAULT: '#706DFF',

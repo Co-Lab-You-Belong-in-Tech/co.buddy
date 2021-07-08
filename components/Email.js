@@ -9,16 +9,16 @@ import axios from 'axios';
 export default function Email () {
     const {setProgress} = useContext(StepContext)
     const {user} = useContext(AuthContext)
-    const {firstName, role, skillLevel, careerGoal, goalImportance, availability} = useContext(UserContext)
+    const {firstName, role, skillLevel, careerGoal, goalImportance, availability, help} = useContext(UserContext)
 
     setProgress("88%");
 
-    const updateUserData = async (firstName, role, skillLevel, careerGoal, goalImportance, availability) => {
+    const updateUserData = async (firstName, role, skillLevel, careerGoal, goalImportance, availability, help) => {
       const userId = user.uid;
       const userDoc = firestore.doc(`users/${userId}`);
       
       const batch = firestore.batch();
-      batch.set(userDoc, {firstname: firstName, role: role, skillLevel: skillLevel, careergoal: careerGoal, goalimportance: goalImportance, availability: availability, partner: null});
+      batch.set(userDoc, {firstname: firstName, role: role, skillLevel: skillLevel, careergoal: careerGoal, goalimportance: goalImportance, availability: availability, partner: null, help: help});
       
       await batch.commit();
 
@@ -33,7 +33,7 @@ export default function Email () {
     useEffect(() => {
       //TODO: if user logged in and hasn't filled in entry form
       if(user) {
-        updateUserData(firstName, role, skillLevel, careerGoal, goalImportance, availability);
+        updateUserData(firstName, role, skillLevel, careerGoal, goalImportance, availability, help);
         router.push("/dashboard");
       }
 
