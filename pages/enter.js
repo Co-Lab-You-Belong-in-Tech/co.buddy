@@ -27,7 +27,7 @@ export default function Enter() {
 
   useEffect(() => {
     if (user) {
-      router.push("/admin");
+      router.push("/signin");
     }
   }, [user]);
 

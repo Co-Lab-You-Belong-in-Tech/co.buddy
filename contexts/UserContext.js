@@ -9,7 +9,7 @@ const UserProvider = ({children}) => {
   const [careerGoal, setCareerGoal] = useState("");
   const [goalImportance, setGoalImportance] = useState("");
   const [availability, setAvailability] = useState("");
-
+  const [partner, setPartner] = useState("")
   return (
       <UserContext.Provider 
         value={{firstName, setFirstName, 
@@ -17,7 +17,8 @@ const UserProvider = ({children}) => {
                 skillLevel, setSkillLevel, 
                 careerGoal, setCareerGoal,
                 goalImportance, setGoalImportance,
-                availability, setAvailability}}>
+                availability, setAvailability,
+                partner, setPartner}}>
       {children}
       </UserContext.Provider> 
   )

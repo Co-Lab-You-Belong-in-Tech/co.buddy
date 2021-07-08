@@ -34,7 +34,7 @@ export default function Email () {
       //TODO: if user logged in and hasn't filled in entry form
       if(user) {
         updateUserData(firstName, role, skillLevel, careerGoal, goalImportance, availability);
-        router.push("/admin");
+        router.push("/dashboard");
       }
 
     }, [user])
