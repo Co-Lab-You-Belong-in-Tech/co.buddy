@@ -14,7 +14,7 @@ export default function Greetings () {
           <div>
           </div>
           <div>
-            <h1 className="text-center text-purple-400 lg:mb-5">Hi {firstName}</h1>
+            <h1 className="text-center text-2xl text-purple-400 lg:mb-5">Hi {firstName}</h1>
             <p className="text-center lg:text-lg lg:mb-5">Answer a few questions to help us understand your goal and to find you an appropriate partner</p>
           </div>
           <button onClick={()=>setStep(3)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Next</button>

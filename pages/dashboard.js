@@ -35,8 +35,7 @@ export default function Dashboard() {
       async function getUserInfo() {
         await firestore.collection('users')
                           .doc(auth.currentUser.uid)
-                          .get()
-                          .then(doc => {
+                          .onSnapshot((doc) => {
                             setFirstName(doc.data().firstname);
                             setRole(doc.data().role)
                             setSkillLevel(doc.data().skilllevel)
