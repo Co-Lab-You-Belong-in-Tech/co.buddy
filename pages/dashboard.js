@@ -17,6 +17,7 @@ import goal from '../public/resources/goal.svg'
 import focus from '../public/resources/focus.svg'
 import homenotactive from '../public/resources/HomeNotActive.svg'
 import logo from '../public/resources/logo.png'
+import send from '../public/resources/send.svg'
 
 export default function Dashboard() {
   const {firstName, setFirstName, role, setRole, skillLevel, setSkillLevel, careerGoal, setCareerGoal, goalImportance, setGoalImportance, availability, setAvailability, partner, setPartner, help, setHelp} = useContext(UserContext)
@@ -200,7 +201,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, {idField: 'id'});
-
+  console.log(messages)
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async(e) => {
@@ -232,7 +233,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
         <form onSubmit={sendMessage} className="fixed flex bg-white bottom-0 w-full h-14 mb-16 border-t border-gray-300">
           <div className="relative flex justify-between items-center w-full px-2">
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message" className="h-10 border w-full border-gray-300 rounded-full py-3 px-6"></input>
-            <button type="submit" className="w-10 h-10 rounded-full text-white bg-blue-500"></button>
+            <button type="submit" className="flex justify-center pl-2"><Image src={send}></Image></button>
           </div>
         </form>
         <div className="fixed bottom-0 inset-x-0 bg-white h-16 p-4">
