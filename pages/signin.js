@@ -40,7 +40,7 @@ export function SignInButton() {
   };
 
   return (
-    <button onClick={signInWithGoogle} className="flex items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
+    <button onClick={signInWithGoogle} className="flex font-bold items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
   );
 }
 
