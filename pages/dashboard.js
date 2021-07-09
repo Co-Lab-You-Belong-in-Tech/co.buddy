@@ -223,7 +223,9 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
     e.preventDefault();
 
     const { uid } = auth.currentUser;
-
+    
+    setFormValue('');
+    
     await messagesRef.add({
       text: formValue,
       createdAt: fieldvalue.serverTimestamp(),
