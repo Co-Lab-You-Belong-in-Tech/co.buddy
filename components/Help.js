@@ -56,7 +56,7 @@ export default function Help () {
                          Other
                         </button>
                     </div>
-                    <button disabled={!help} onClick={()=>setStep(6)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
+                    <button disabled={!help} onClick={()=>setStep(6)} className="disabled:opacity-50 bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
                      Next
                     </button>
                 </div>
@@ -66,7 +66,7 @@ export default function Help () {
 
     function DesignerHelp () {
         const {setStep} = useContext(StepContext)
-        const {setHelp} = useContext(UserContext)
+        const {help, setHelp} = useContext(UserContext)
         return (
             <div className="flex-1">
                 <button onClick={()=>setStep(4)} className="ml-5 mt-5 sm:invisible">
@@ -77,23 +77,23 @@ export default function Help () {
                 <div className="flex flex-col justify-between p-10 h-full">
                     <h1 className="font-bold text-center">What do you need help with?</h1>
                     <div className="flex flex-col justify-between h-0 sm:h-3/6" >
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 -my-60 sm:-my-10 sm:mb-5 sm:mr-1 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Design Tools")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 -my-60 sm:-my-10 sm:mb-5 sm:mr-1 ease-linear transition-all duration-150" type="button">
                         Design Tools
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("UX Research")}className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                         UX Research
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Portfolio/Interview Preparation")}className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                         Portfolio/Interview Preparation
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Time Management")}className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                         Time Management
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Other")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                         Other
                         </button>
                     </div>
-                    <button onClick={()=>setStep(6)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
+                    <button disabled={!help} onClick={()=>setStep(6)} className="disabled:opacity-50 bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
                     Next
                     </button>
                 </div>
@@ -104,7 +104,7 @@ export default function Help () {
 
     function PMHelp () {
         const {setStep} = useContext(StepContext) 
-        const {setHelp} = useContext(UserContext)
+        const {help, setHelp} = useContext(UserContext)
         return (
             <div className="flex-1">
                 <button onClick={()=>setStep(4)} className="ml-5 mt-5 sm:invisible">
@@ -115,26 +115,26 @@ export default function Help () {
                 <div className="flex flex-col justify-between p-10 h-full">
                     <h1 className="font-bold text-center">What do you need help with?</h1>
                     <div className="flex flex-col justify-between h-0 sm:h-3/6" >
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 -my-60 sm:-my-20 sm:mb-5 sm:mr-1 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Product Interview Strategy")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 -my-60 sm:-my-20 sm:mb-5 sm:mr-1 ease-linear transition-all duration-150" type="button">
                          Product Interview Strategy
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Job Search")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                          Job Search
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Writing Product Requirements")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                          Writing Product Requirements
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Building a Product Roadmap")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                             Building a Product Roadmap
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Research")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                          Research
                         </button>
-                        <button className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                        <button onClick={() => setHelp("Other")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                          Other
                         </button>
                     </div>
-                    <button onClick={()=>setStep(6)} className="bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
+                    <button disabled={!help} onClick={()=>setStep(6)} className="disabled:opacity-50 bg-purple-500 text-white active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-12 sm:mb-1 ease-linear transition-all duration-150" type="button">
                      Next
                     </button>
                 </div>
