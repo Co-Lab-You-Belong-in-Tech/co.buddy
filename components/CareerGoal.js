@@ -23,8 +23,8 @@ export default function CareerGoal () {
               <button onClick={() => setCareerGoal("Master a skill")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                 Master a skill
               </button>
-              <button onClick={() => setCareerGoal("Job Search")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
-                Job Search
+              <button onClick={() => setCareerGoal("Improve collaboration")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
+                Improve collaboration
               </button>
               <button onClick={() => setCareerGoal("Learn a Language")} className="focus:ring-2 focus:ring-purple-600 bg-gray-200 text-left active:bg-purple-300 px-8 py-3 rounded outline-none focus:outline-none mr-1 mb-4 sm:mb-5 ease-linear transition-all duration-150" type="button">
                 Learn a Language
