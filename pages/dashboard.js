@@ -142,7 +142,7 @@ export default function Dashboard() {
               <Image src={logo} width="40" height="40"></Image>
               <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
             </div>
-            <div className="flex flex-col h-screen container mx-auto px-4 py-8 md:flex-row items-center justify-start">
+            <div className="flex flex-col flex-l overflow-y-scroll container mx-auto px-4 py-8 md:flex-row items-center justify-start">
               <div className="relative w-full lg:w-large mx-auto">
                 <div className="w-full">
                   <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
@@ -278,9 +278,14 @@ function ChatMessage(props) {
   else {
     //message received
     return (
-      <div className="flex items-center">
-        <p className="bg-gray-200 rounded-t-lg rounded-r-lg px-4 py-2 text-left my-3 max-w-xs">{text}</p>  
-      </div>
+      <>
+        <div className="flex items-center">
+          <p className="bg-gray-200 rounded-t-lg rounded-r-lg px-4 py-2 text-left mt-3 mb-1 max-w-xs">{text}</p>  
+        </div>
+        <div className="flex items-center">
+          <p className="text-xs text-gray-300">{timestamp}</p>
+        </div>
+      </>
     )
   }
 
