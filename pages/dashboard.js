@@ -30,7 +30,7 @@ export default function Dashboard() {
   //GRABS USER INFORMATION AND STORES IN CONTEXT
   useEffect(() => {
     if (!user) {
-      // router.replace("/signin");
+      router.replace("/signin");
     }
     else {
       async function getUserInfo() {
@@ -75,8 +75,10 @@ export default function Dashboard() {
   //unsure if user is logged in 
   if (!user) {
     return (
-      <div>
-        Loading...
+      <div className="h-screen w-screen flex justify-center items-center">
+        <svg className="animate-spin h-5 w-5 mr-3">
+          <path d="M10 3v2a5 5 0 0 0-3.54 8.54l-1.41 1.41A7 7 0 0 1 10 3zm4.95 2.05A7 7 0 0 1 10 17v-2a5 5 0 0 0 3.54-8.54l1.41-1.41zM10 20l-4-4 4-4v8zm0-12V0l4 4-4 4z"/>
+        </svg>
       </div>
     )
   }
@@ -142,7 +144,7 @@ export default function Dashboard() {
               <Image src={logo} width="40" height="40"></Image>
               <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
             </div>
-            <div className="flex flex-col flex-l overflow-y-scroll container mx-auto px-4 py-8 md:flex-row items-center justify-start">
+            <div className="flex flex-col sm:flex-1 lg:h-screen overflow-y-scroll container mb-16 lg:mb-0 mx-auto px-4 py-8 md:flex-row items-center justify-start">
               <div className="relative w-full lg:w-large mx-auto">
                 <div className="w-full">
                   <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
@@ -236,7 +238,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
           </div>
         </form>
         <div className="fixed bottom-0 inset-x-0 bg-white h-16 p-4">
-          <div className="flex justify-between items-center h-full">
+          <div className="flex justify-between items-center h-full mx-auto lg:w-large">
             <div className="flex flex-col justify-center items-center px-14">
               <Image alt="home" src={homenotactive} width="20" height="20" onClick={() => setOpenChat(false)}></Image>
               <p className="text-xs text-gray-400">Home</p>

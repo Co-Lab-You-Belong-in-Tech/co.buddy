@@ -22,11 +22,18 @@ export default function SignIn() {
 
   return (
     <div className="text-gray-900 body-font h-screen">
-      <div className="h-screen container mx-auto flex px-7 py-4 md:flex-row flex-col items-center justify-end">
-        <div className="lg:flex-grow w-full h-3/6 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-center md:text-left md:mb-0 items-center text-center">
-          <Image src={logo} width="50" height="50"></Image>
-          <div className="flex w-full justify-center mb-5">
-              <SignInButton></SignInButton>
+      <div className="h-screen container mx-auto flex px-7 py-4 md:flex-row flex-col items-center justify-center">
+        <div className="flex flex-col h-full justify-between items-center text-center pt-28">
+          <div className="mb-12">
+            <Image src={logo} width="42" height="42"></Image>
+            <h1 className="text-xl">Sign in</h1>
+            <p className="text-gray-500 text-sm">Welcome back</p>
+          </div>
+          <div className="flex flex-col w-full justify-center">
+            <SignInButton></SignInButton>
+          </div>
+          <div className="pb-8">
+            <p>Don&apos;t have an account, <Link href="/enter"><span className="text-copurple cursor-pointer">Get Started</span></Link> </p>
           </div>
         </div>
       </div>
@@ -40,7 +47,7 @@ export function SignInButton() {
   };
 
   return (
-    <button onClick={signInWithGoogle} className="flex font-bold items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
+    <button onClick={signInWithGoogle} className="flex font-bold items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none rounded text-base"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
   );
 }
 
