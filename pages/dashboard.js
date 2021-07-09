@@ -209,7 +209,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
     e.preventDefault();
 
     const { uid } = auth.currentUser;
-    setFormValue('');
+
     await messagesRef.add({
       text: formValue,
       createdAt: fieldvalue.serverTimestamp(),
@@ -226,12 +226,12 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
           <h3 className="font-bold text-white text-center">You &amp; {partnerInfo.firstname}</h3>
         </header>
         <section className="flex-1">
-          <main className="flex flex-col overflow-y-scroll mt-24 mb-32 p-3">
+          <main className="flex flex-col overflow-y-scroll no-scrollbar lg:w-large lg:mx-auto mt-24 mb-32 p-3">
             {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} timestamp={msg.createdAt} />)}
             <div ref={dummy}></div>
           </main>
         <form onSubmit={sendMessage} className="fixed flex bg-white bottom-0 w-full h-14 mb-16 border-t border-gray-300">
-          <div className="relative flex justify-between items-center w-full px-2">
+          <div className="relative flex justify-between items-center w-full lg:w-large lg:mx-auto px-2">
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message" className="h-10 border w-full border-gray-300 rounded-full py-3 px-6" required></input>
             <button type="submit" className="flex justify-center pl-2"><Image src={send}></Image></button>
           </div>
