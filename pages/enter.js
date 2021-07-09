@@ -58,8 +58,8 @@ export default function Enter() {
     <div className="h-screen flex flex-col">
       <div className="relative pt-1">
         <div className="lg:flex hidden justify-center align-middle items-center h-20 border-b-2">
-            <Image src={logo} height="40" width="40"></Image>
-            <Link href="/"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
+            <Image alt="logo" src={logo} height="40" width="40"></Image>
+            <Link passHref={true} href="/"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
         </div>
         <div style={{width: progress}} className="lg:hidden overflow-hidden h-2 mb-4 text-xs flex rounded bg-copurple m-5">
         </div>

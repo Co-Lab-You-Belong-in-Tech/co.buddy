@@ -91,25 +91,25 @@ export default function Dashboard() {
           <div className="text-gray-900 body-font h-screen bg-gray-100">
             <div className="flex flex-col h-screen container mx-auto px-4 py-8 md:flex-row items-center justify-start">
               <div className="hidden lg:flex justify-center items-center fixed top-0 left-0 right-0 w-full h-20 border-b bg-white">
-                <Image src={logo} width="40" height="40"></Image>
-                <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
+                <Image alt="logo" src={logo} width="40" height="40"></Image>
+                <Link passHref={true} href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
               </div>
               <div className="relative w-full lg:w-large mx-auto">
                 <div className="w-full">
                   <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full px-12 mb-4 h-36 bg-coyellow rounded shadow-md">
-                  <Image src={foundmatch} width="72" height="72"></Image>
+                  <Image alt="found match"  src={foundmatch} width="72" height="72"></Image>
                   <p className="font-bold text-sm">You are almost there!</p>
                   <p className="text-sm text-center">We&apos;ll get you matched in no time. Keep your fingers crossed.</p>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                  <Image src={goal} width="20" height="20"></Image>
+                  <Image alt="goal" src={goal} width="20" height="20"></Image>
                   <p className="text-coblue">Your Next Career Goal</p>
                   <p className="text-lg font-bold">{careerGoal}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                  <Image src={focus} width="20" height="20"></Image>
+                  <Image alt="focus" src={focus} width="20" height="20"></Image>
                   <p className="text-coorange">Your Primary Focus</p>
                   <p className="text-lg font-bold">{help}</p>
                 </div>
@@ -119,11 +119,11 @@ export default function Dashboard() {
           <div className="fixed bottom-0 inset-x-0 bg-white lg:h-20 h-16 p-4 border-t border-gray-300">
             <div className="flex justify-between items-center h-full mx-auto lg:w-large">
               <div className="flex flex-col justify-center items-center px-14" onClick={() => setOpenChat(false)}>
-                <Image src={home} width="20" height="20"></Image>
+                <Image alt="home" src={home} width="20" height="20"></Image>
                 <p className="text-xs text-copurple">Home</p>
               </div>
               <div className="flex flex-col justify-center items-center px-14 opacity-60" onClick={() => setOpenChat(false)}>
-                <Image src={chat} width="20" height="20"></Image>
+                <Image alt="chat" src={chat} width="20" height="20"></Image>
                 <p className="text-xs text-gray-400">Buddy Chat</p>
               </div>
             </div>
@@ -141,8 +141,8 @@ export default function Dashboard() {
         {user && partner && !openChat &&
           <div className="text-gray-900 body-font h-screen bg-gray-100">
             <div className="hidden lg:flex justify-center items-center fixed top-0 left-0 right-0 w-full h-20 border-b bg-white">
-              <Image src={logo} width="40" height="40"></Image>
-              <Link href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
+              <Image alt="logo" src={logo} width="40" height="40"></Image>
+              <Link passHref={true} href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
             </div>
             <div className="flex flex-col sm:flex-1 lg:h-screen overflow-y-scroll container mb-16 lg:mb-0 mx-auto px-4 py-8 md:flex-row items-center justify-start">
               <div className="relative w-full lg:w-large mx-auto">
@@ -150,16 +150,16 @@ export default function Dashboard() {
                   <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-36 bg-copurple-200 rounded shadow-md">
-                  <Image src={foundmatch} width="72" height="72"></Image>
+                  <Image alt="found match" src={foundmatch} width="72" height="72"></Image>
                   <p className="font-bold text-sm">You&apos;ve Been Matched With {partnerInfo.firstname}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                  <Image src={goal} width="20" height="20"></Image>
+                  <Image alt="goal" src={goal} width="20" height="20"></Image>
                   <p className="text-coblue">Your Next Career Goal</p>
                   <p className="text-lg font-bold">{careerGoal}</p>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
-                  <Image src={focus} width="20" height="20"></Image>
+                  <Image alt="focus" src={focus} width="20" height="20"></Image>
                   <p className="text-coorange">Your Primary Focus</p>
                   <p className="text-lg font-bold">{help}</p>
                 </div>
@@ -169,11 +169,11 @@ export default function Dashboard() {
             <div className="fixed bottom-0 inset-x-0 bg-white lg:h-20 h-16 p-4 border-t border-gray-300">
               <div className="flex justify-between items-center h-full mx-auto lg:w-large">
                 <div className="flex flex-col justify-center items-center px-14" onClick={() => setOpenChat(false)}>
-                  <Image src={home} width="20" height="20"></Image>
+                  <Image alt="home" src={home} width="20" height="20"></Image>
                   <p className="text-xs text-copurple">Home</p>
                 </div>
                 <div className="flex flex-col justify-center items-center px-14" onClick={() => setOpenChat(true)} >
-                  <Image src={chat} width="20" height="20"></Image>
+                  <Image alt="buddy chat"src={chat} width="20" height="20"></Image>
                   <p className="text-xs text-gray-400">Buddy Chat</p>
                 </div>
               </div>
