@@ -7,7 +7,7 @@ import { UserContext } from '../contexts/UserContext';
 import axios from 'axios';
 
 export default function Email () {
-    const {setProgress} = useContext(StepContext)
+    const {setStep,setProgress} = useContext(StepContext)
     const {user} = useContext(AuthContext)
     const {firstName, role, skillLevel, careerGoal, goalImportance, availability} = useContext(UserContext)
 
@@ -42,6 +42,11 @@ export default function Email () {
 
     return(
       <div className="flex-1">
+        <button onClick={()=>setStep(8)} className="ml-5 mt-5 sm:invisible">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.828 6.99968H16V8.99968H3.828L9.192 14.3637L7.778 15.7777L0 7.99968L7.778 0.22168L9.192 1.63568L3.828 6.99968Z" fill="#525252"/>
+            </svg>
+        </button>
         <div className="flex flex-col justify-between p-10 h-full">
           <h1 className="font-bold text-center">Sign Up With Google</h1>
           <div>
@@ -58,6 +63,6 @@ export function SignUpButton() {
   };
 
   return (
-    <button onClick={signInWithGoogle} className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign Up With Google</button>
+    <button onClick={signInWithGoogle} className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mb-5 sm:mb-1 text-lg">Sign Up With Google</button>
   );
 }
