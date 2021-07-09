@@ -7,6 +7,7 @@ import { firestore } from '../lib/firebase'
 import { UserContext } from '../contexts/UserContext'
 import Link from 'next/link'
 import SignIn, { SignInButton, SignOutButton } from './signin'
+import moment from 'moment'
 
 import Image from 'next/image'
 import chat from '../public/resources/Chat.svg'
@@ -200,7 +201,6 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, {idField: 'id'});
-  console.log(messages)
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async(e) => {
@@ -210,7 +210,7 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
 
     await messagesRef.add({
       text: formValue,
-      createdAt: fieldvalue.serverTimestamp(), //TODO, FIX fieldvalue import 
+      createdAt: fieldvalue.serverTimestamp(),
       uid
     })
 
@@ -220,13 +220,13 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
   }
 
   return (
-      <div className="  ">
+      <div className="">
         <header className="flex flex-col justify-center fixed h-24 bg-copurple w-full top-0">
           <h3 className="font-bold text-white text-center">You &amp; {partnerInfo.firstname}</h3>
         </header>
         <section className="flex-1">
           <main className="flex flex-col overflow-y-scroll mt-24 mb-32 p-3">
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} timestamp={msg.createdAt} />)}
             <div ref={dummy}></div>
           </main>
         <form onSubmit={sendMessage} className="fixed flex bg-white bottom-0 w-full h-14 mb-16 border-t border-gray-300">
@@ -253,15 +253,25 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
 }
 
 function ChatMessage(props) {
-  const {text, uid} = props.message;
-
+  const {text, uid, createdAt} = props.message;
+  const moment = require('moment');
+  var timestamp = "a few seconds ago"
+  if (createdAt) {
+    timestamp = moment(createdAt.toDate()).fromNow();
+  }
   if (uid === auth.currentUser.uid)
   {
     //message sent\
     return (
-      <div className="flex flex-row-reverse items-center">
-        <p className="bg-copurple rounded-t-lg rounded-l-lg px-4 py-2 text-left my-3 text-white max-w-">{text}</p>
-      </div>
+      <>
+        <div className="flex flex-row-reverse items-center">
+          <p className="bg-copurple rounded-t-lg rounded-l-lg px-4 py-2 text-left mt-3 mb-1 text-white max-w-">{text}</p>
+        </div>
+        <div className="flex flex-row-reverse items-center">
+          <p className="text-xs text-gray-300">{timestamp}</p>
+        </div>
+
+      </>
     )
 
   }
