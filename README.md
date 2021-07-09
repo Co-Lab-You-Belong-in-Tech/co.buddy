@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+This is the repo for Co.Buddy, a service that allows people in tech to match with partners to keep each other accountible. 
 ## Getting Started
 
 First, run the development server:

@@ -22,6 +22,7 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+//this func gets all the unmatched users from the firestore db
 const getUnmatchedUsers = async (curUserId)  => {
   const unmatchedUsers = new Map();
   const getUsers = await firestore.collection("users")
@@ -36,6 +37,7 @@ const getUnmatchedUsers = async (curUserId)  => {
   return unmatchedUsers;
 }
 
+//this func gets the current user from the db
 const getCurUser = async (uid) => {
   var curUser; 
   const getUser = await firestore.collection("users")
@@ -48,21 +50,27 @@ const getCurUser = async (uid) => {
   return curUser;
 }
 
+//this func matches the current user to the best match, if can't find best match then it returns null
 const findBestUser = (curUser, unmatchedUsers) => {
   var bestUser;
   
   unmatchedUsers.forEach((user, id) => {
-    if(user.role === curUser.role) {
+    if(user.role === curUser.role) { //test for equal role 
       bestUser = {id, user};
     }
-    if (user.role === curUser.role && user.availability === curUser.availability) {
+    if (user.role === curUser.role && user.availability === curUser.availability) { //test for equal role and availability 
       bestUser = {id, user};
     }
   });
-
-  return bestUser;
+  if (!bestUser == null) {
+    return null;
+  }
+  else {
+    return bestUser;
+  }
 } 
 
+//creates a unique message document with both users id as the thread id
 const createThread = async (curUserId, bestUserId) => {
   var threadId;
   if (curUserId < bestUserId) {
@@ -79,26 +87,30 @@ const createThread = async (curUserId, bestUserId) => {
   })
 }
 
+//sets the current user and their best match as partners
 const setPartners = async (curUserId, bestUserId) => {
-  await firestore.collection("users").doc(curUserId).set({
+  await firestore.collection("users").doc(curUserId).update({
     partner: bestUserId
   })
 
-  await firestore.collection("users").doc(bestUserId).set({
+  await firestore.collection("users").doc(bestUserId).update({
     partner: curUserId
   })
 
 } 
 
-//TODO: import all required data and perform user matching alg here
 export default async function matchUsers(req, res) {
   if (!req.body.uid) return res.status(400).send('User not found.')
   const userId = req.body.uid;
   const unmatchedUsers = await getUnmatchedUsers(userId);
   const curUser = await getCurUser(userId);
-
   const bestUser = findBestUser(curUser, unmatchedUsers);
-  await setPartners(userId, bestUser.id)
-  await createThread(userId, bestUser.id)
-  res.status(200).send('OK');
+  if (bestUser == null) {
+    res.status(200).send('OK');
+  }
+  else {
+    await setPartners(userId, bestUser.id)
+    await createThread(userId, bestUser.id)
+    res.status(200).send('OK');
+  }
 }

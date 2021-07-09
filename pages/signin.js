@@ -16,7 +16,7 @@ export default function SignIn() {
   
   useEffect(() => {
     if (user) {
-      router.push("/admin");
+      router.replace("/dashboard");
     }
   }, [user]);
 
@@ -40,10 +40,10 @@ export function SignInButton() {
   };
 
   return (
-    <button onClick={signInWithGoogle} className="flex items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
+    <button onClick={signInWithGoogle} className="flex font-bold items-center justify-center w-full text-center border border-cogray py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base"><Image src={google} width="24" height="24" alt="google icon"></Image><p className="ml-5">Sign In With Google</p></button>
   );
 }
 
 export function SignOutButton() {
-  return <button onClick={() => auth.signOut()} className="text-white w-full text-center bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign Out</button>;
+  return <button onClick={() => auth.signOut()} className="text-gray-800 w-full text-center bg-white border-0 py-2 px-6 focus:outline-none shadow-md rounded text-lg">Sign Out</button>;
 }
