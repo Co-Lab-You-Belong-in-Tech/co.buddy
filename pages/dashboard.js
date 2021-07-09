@@ -144,14 +144,28 @@ export default function Dashboard() {
               <Image alt="logo" src={logo} width="40" height="40"></Image>
               <Link passHref={true} href="/dashboard"><h3 className="cursor-pointer text-xl font-extrabold pl-3">Co.Buddy</h3></Link>
             </div>
-            <div className="flex flex-col sm:flex-1 lg:h-screen overflow-y-scroll container mb-16 lg:mb-0 mx-auto px-4 py-8 md:flex-row items-center justify-start">
+            <div className="flex flex-col sm:flex-1 lg:h-screen overflow-y-scroll no-scrollbar container mb-16 lg:mb-0 mx-auto px-4 pt-8 pb-16 md:flex-row items-center justify-start">
               <div className="relative w-full lg:w-large mx-auto">
                 <div className="w-full">
                   <h1 className="font-bold mb-7 lg:text-center">Hi {firstName}</h1>
                 </div>
-                <div className="flex flex-col justify-center items-center w-full mb-4 h-36 bg-copurple-200 rounded shadow-md">
+                <div className="flex flex-col justify-center items-center w-full mb-4 h-80 bg-copurple-200 rounded shadow-md">
                   <Image alt="found match" src={foundmatch} width="72" height="72"></Image>
-                  <p className="font-bold text-sm">You&apos;ve Been Matched With {partnerInfo.firstname}</p>
+                  <p className="font-bold mb-2">You&apos;ve Been Matched With {partnerInfo.firstname}</p>
+                  <p className="mb-4 text-sm text-center"><span className="font-bold">{partnerInfo.skillLevel} {partnerInfo.role}</span></p>
+                  <div className="flex flex-col items-center mb-4">
+                    <p className="text-sm text-gray-600">Needs help with</p>
+                    <p>{partnerInfo.help}</p>
+                  </div>
+                  <div className="flex flex-col items-center mb-4">
+                    <p className="text-sm text-gray-600">Next career goal</p>
+                    <p>{partnerInfo.careergoal}</p>
+                  </div>
+                  <div className="flex flex-col items-center mb-2">
+                    <p className="text-sm text-gray-600">Availability</p>
+                    <p>{partnerInfo.availability}</p>
+                  </div>
+                  <p></p>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full mb-4 h-32 bg-white shadow-sm">
                   <Image alt="goal" src={goal} width="20" height="20"></Image>
