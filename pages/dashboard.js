@@ -220,15 +220,15 @@ function BuddyChat({curUserId, partnerId, partnerInfo, setOpenChat}) {
   }
 
   return (
-      <div className="block">
+      <div className="  ">
         <header className="flex flex-col justify-center fixed h-24 bg-copurple w-full top-0">
           <h3 className="font-bold text-white text-center">You &amp; {partnerInfo.firstname}</h3>
         </header>
-        <section className="min-h-screen">
-        <main className="flex flex-col overflow-y-scroll mt-24 mb-32 p-3">
-          {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-          <div ref={dummy}></div>
-        </main>
+        <section className="flex-1">
+          <main className="flex flex-col overflow-y-scroll mt-24 mb-32 p-3">
+            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+            <div ref={dummy}></div>
+          </main>
         <form onSubmit={sendMessage} className="fixed flex bg-white bottom-0 w-full h-14 mb-16 border-t border-gray-300">
           <div className="relative flex justify-between items-center w-full px-2">
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message" className="h-10 border w-full border-gray-300 rounded-full py-3 px-6"></input>
