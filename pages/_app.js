@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <AuthContext.Provider value={userData}>
         <UserProvider>
-          <StepProvider>
+          <StepProvider className="bg-gray-100">
             <Component {...pageProps} />
           </StepProvider>
         </UserProvider>

@@ -9,13 +9,13 @@ export default function Help () {
     const {role}  = useContext(UserContext)
     function showRole(role) {
         switch(role) {
-          case "designer": 
+          case "Designer": 
             return <DesignerHelp />
-          case "pm":
+          case "Product Manager":
             return <PMHelp />
-          case "dev":
+          case "Developer":
             return <DevHelp />
-          case "otherrole":
+          case "Other Role":
             return <CareerGoal />
         }
       }
@@ -66,6 +66,7 @@ export default function Help () {
 
     function DesignerHelp () {
         const {setStep} = useContext(StepContext)
+        const {setHelp} = useContext(UserContext)
         return (
             <div className="flex-1">
                 <button onClick={()=>setStep(4)} className="ml-5 mt-5 sm:invisible">
@@ -102,7 +103,8 @@ export default function Help () {
 
 
     function PMHelp () {
-        const {setStep} = useContext(StepContext)
+        const {setStep} = useContext(StepContext) 
+        const {setHelp} = useContext(UserContext)
         return (
             <div className="flex-1">
                 <button onClick={()=>setStep(4)} className="ml-5 mt-5 sm:invisible">
